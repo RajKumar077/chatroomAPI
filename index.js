@@ -11,5 +11,5 @@ io.on("connection", (socket) => {
 const port = process.env.PORT || 8080;
 
 http.listen(port, function () {
-  console.log("listening on 8080..");
+  console.log("listening on 8080...");
 });
