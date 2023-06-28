@@ -8,6 +8,10 @@ io.on("connection", (socket) => {
   });
 });
 
+app.get('/', (req, res) => {
+  res.send('Chat API running..')
+});
+
 const port = process.env.PORT || 8080;
 
 http.listen(port, function () {
