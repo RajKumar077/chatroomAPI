@@ -8,6 +8,11 @@ io.on("connection", (socket) => {
   });
 });
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://chatroom-frontend-eosin.vercel.app');
+  next();
+});
+
 app.get('/', (req, res) => {
   res.send('Chat API running..')
 });
