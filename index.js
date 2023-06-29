@@ -1,4 +1,10 @@
 const app = require("express")();
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://chatroom-frontend-eosin.vercel.app');
+  next();
+});
+
 const http = require("http").createServer(app);
 const io = require("socket.io")(http, { origins: "*:*" });
 
@@ -8,10 +14,7 @@ io.on("connection", (socket) => {
   });
 });
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://chatroom-frontend-eosin.vercel.app');
-  next();
-});
+
 
 app.get('/', (req, res) => {
   res.send('Chat API running..')
